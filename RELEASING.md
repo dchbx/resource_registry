@@ -50,3 +50,6 @@ For any release that has the bug:
 
 ## Using a Tagged Release in Another Project
 To use the new release in another project, update the project's `Gemfile` to reference the release's tag, e.g., `gem 'resource_registry', git: 'https://github.com/dchbx/resource_registry.git', tag: 'v1.0.0'`.
+
+## Git Process diagram
+![Git Process Diagram - Gem](docs_assets/release_branching_gem.png)
