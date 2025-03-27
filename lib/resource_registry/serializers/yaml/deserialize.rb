@@ -19,14 +19,26 @@ module ResourceRegistry
         private
 
         def transform(params)
-          # result = JSON.parse(ERB.new(JSON::dump(YAML.load(params))).result)
-
-          result = YAML.unsafe_load(ERB.new(params).result)
+          result = call_deserialize(params)
           Success(result || {})
         rescue Psych::SyntaxError => e
           raise "YAML syntax error occurred while parsing #{params}. " \
                 "Error: #{e.message}"
         end
+
+        def call_deserialize(params)
+          if ResourceRegistry.stdgem_ruby_version?
+            YAML.load(
+              ERB.new(params).result,
+              permitted_classes: [Date, Time, Symbol]
+            )
+          else
+            YAML.load(
+              ERB.new(params).result
+            )
+          end
+        end
+
       end
     end
   end
