@@ -27,7 +27,7 @@ module ResourceRegistry
         end
 
         def call_deserialize(params)
-          if ResourceRegistry.stdgem_ruby_version?
+          if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.1.0')
             YAML.load(
               ERB.new(params).result,
               permitted_classes: [Date, Time, Symbol]
