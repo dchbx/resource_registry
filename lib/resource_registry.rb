@@ -2,12 +2,13 @@
 
 require 'dry/validation'
 
+require 'resource_registry/version'
+require 'resource_registry/ruby_compatibility'
+
 require 'dry/monads'
 require 'dry/monads/do'
 require 'dry-struct'
 
-
-require 'resource_registry/version'
 require 'resource_registry/error'
 
 require 'resource_registry/types'
