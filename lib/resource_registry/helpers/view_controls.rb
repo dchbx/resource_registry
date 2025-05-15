@@ -187,7 +187,7 @@ module RegistryViewControls
 
     date_value = value_for(setting, form)
     date_value = date_value.to_date if date_value.is_a?(Time)
-    date_value = date_value.to_s(:db) if date_value.is_a?(Date)
+    date_value = date_value.to_fs(:db) if date_value.is_a?(Date)
 
     meta = setting[:meta]
     input_value = date_value || setting.item || meta&.default
