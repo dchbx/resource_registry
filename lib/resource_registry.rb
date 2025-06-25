@@ -23,6 +23,7 @@ require 'resource_registry/feature'
 require 'resource_registry/feature_dsl'
 require 'resource_registry/configuration'
 require 'resource_registry/registry'
+require 'deep_merge/rails_compat'
 
 module ResourceRegistry
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'deep_merge'
+require 'deep_merge/rails_compat'
+
 module ResourceRegistry
   module Stores
     module Operations
@@ -10,7 +11,7 @@ module ResourceRegistry
 
         def call(input)
           if defined? ResourceRegistry::AppSettings
-            DeepMerge.deep_merge!(
+            DeepMerge.deeper_merge!(
               input.to_h,
               ResourceRegistry::AppSettings,
               merge_hash_arrays: true,
